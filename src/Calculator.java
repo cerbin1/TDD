@@ -1,6 +1,5 @@
 public class Calculator {
     public double executeCalculation(String string) {
-        System.out.println(string);
         if (string == null) {
             throw new IllegalArgumentException();
         }
@@ -14,7 +13,6 @@ public class Calculator {
         double secondNumber = match.getSecondNumber();
         char operationSymbol = match.getOperationSymbol();
 
-        System.out.println(operationSymbol);
         switch (operationSymbol) {
             case '+':
                 return firstNumber + secondNumber;
@@ -26,6 +24,9 @@ public class Calculator {
                 return firstNumber / secondNumber;
         }
 
-        return 999999;
+        throw new InvalidOperatorException();
+    }
+
+    class InvalidOperatorException extends RuntimeException {
     }
 }

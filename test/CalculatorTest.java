@@ -73,4 +73,16 @@ public class CalculatorTest {
         assertEquals(2, result, 0);
     }
 
+   /* @Test(expected = Calculator.InvalidOperatorException.class) // zrobilbym test, gdzie jest znak rozny niz +-* /, aby metoda executeCalculation rzucala wyjatek
+    // (po switchu, jezeli nie bedzie znaku znaku operacji w zadnym casie, rzuca sie wyjatek), myslalem zeby zmockowac metode invoke klasy Parser, ale ona rzuca
+    // obiekt Match, i nie wiem jak cos takiego sie mockuje o ile w ogole sie to robi. Musialbym w sumie zmockowac metode getOperationChar(), ale stad nie moge jej zamockowac.
+    public void shouldThrowExceptionOnInvalidOperator() {
+        // before
+        Calculator calculator = new Calculator();
+        String operation = "4=4";
+
+        // when
+        calculator.executeCalculation(operation);
+    }*/
+
 }
