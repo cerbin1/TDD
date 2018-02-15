@@ -1,12 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class ParserTest {
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowExceptionOnNullParameter() {
-        // before
+        // given
         Parser parser = new Parser();
 
         // when
@@ -15,7 +13,7 @@ public class ParserTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowExceptionOnEmptyString() {
-        // before
+        // given
         Parser parser = new Parser();
 
         // when
@@ -24,7 +22,7 @@ public class ParserTest {
 
     @Test
     public void shouldGetAdditionMatch() {
-        // before
+        // given
         Parser parser = new Parser();
 
         // when
@@ -35,9 +33,10 @@ public class ParserTest {
         Assert.assertEquals(3.0, match.getSecondNumber(), 0);
         Assert.assertEquals('+', match.getOperationSymbol());
     }
+
     @Test
     public void shouldGetSubtractionMatch() {
-        // before
+        // given
         Parser parser = new Parser();
 
         // when
@@ -48,9 +47,10 @@ public class ParserTest {
         Assert.assertEquals(3.0, match.getSecondNumber(), 0);
         Assert.assertEquals('-', match.getOperationSymbol());
     }
+
     @Test
     public void shouldGetMultiplicationMatch() {
-        // before
+        // given
         Parser parser = new Parser();
 
         // when
@@ -61,9 +61,10 @@ public class ParserTest {
         Assert.assertEquals(3.0, match.getSecondNumber(), 0);
         Assert.assertEquals('*', match.getOperationSymbol());
     }
+
     @Test
     public void shouldGetDivisionMatch() {
-        // before
+        // given
         Parser parser = new Parser();
 
         // when
@@ -73,5 +74,14 @@ public class ParserTest {
         Assert.assertEquals(4.0, match.getFirstNumber(), 0);
         Assert.assertEquals(2.0, match.getSecondNumber(), 0);
         Assert.assertEquals('/', match.getOperationSymbol());
+    }
+
+    @Test(expected = Parser.WrongInputException.class)
+    public void shouldReturnExceptionOnWrongInput() {
+        // given
+        Parser parser = new Parser();
+
+        // when
+        parser.invoke("lorem");
     }
 }

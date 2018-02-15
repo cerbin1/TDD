@@ -11,9 +11,6 @@ public class Parser {
         }
         Pattern pattern = Pattern.compile("(\\d+)([-+*/])(\\d+)");
         Matcher matcher = pattern.matcher(string);
-//        Pattern pattern = Pattern.compile("/d+/.?/d?([-+*/])/d+/.?/d");
-
-//        String[] parts = pattern.split(string);
 
         if (matcher.find()) {
             double firstNumber = Double.parseDouble(matcher.group(1));
@@ -23,7 +20,7 @@ public class Parser {
 
             return new Match(firstNumber, secondNumber, operationSymbol);
         }
-        return null;
+        throw new WrongInputException();
     }
 
     class Match {
@@ -49,5 +46,8 @@ public class Parser {
             return operationSymbol;
         }
 
+    }
+
+    class WrongInputException extends RuntimeException {
     }
 }
