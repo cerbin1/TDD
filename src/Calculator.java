@@ -18,6 +18,12 @@ public class Calculator {
         switch (operationSymbol) {
             case '+':
                 return firstNumber + secondNumber;
+            case '-':
+                return firstNumber - secondNumber;
+            case '*':
+                return firstNumber * secondNumber;
+            case '/':
+                return firstNumber / secondNumber;
         }
 
         return 999999;
