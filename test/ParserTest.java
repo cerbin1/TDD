@@ -77,11 +77,25 @@ public class ParserTest {
     }
 
     @Test(expected = Parser.WrongInputException.class)
-    public void shouldReturnExceptionOnWrongInput() {
+    public void shouldThrowExceptionOnWrongInput() {
         // given
         Parser parser = new Parser();
 
         // when
         parser.invoke("lorem");
     }
+
+    /*@Test // regex problem
+    public void shouldGetRealNumbers() {
+        // before
+        Parser parser = new Parser();
+
+        // when
+        Parser.Match match = parser.invoke("1.3+2.5");
+
+        // then
+        Assert.assertEquals(1.3, match.getFirstNumber(), 0);
+        Assert.assertEquals(2.5, match.getFirstNumber(), 0);
+        Assert.assertEquals('+', match.getOperationSymbol());
+    }*/
 }
