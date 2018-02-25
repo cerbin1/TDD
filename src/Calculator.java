@@ -17,6 +17,9 @@ public class Calculator {
             case '*':
                 return firstNumber * secondNumber;
             case '/':
+                if (secondNumber == 0) {
+                    throw new ArithmeticException("Dividing by zero!");
+                }
                 return firstNumber / secondNumber;
         }
 

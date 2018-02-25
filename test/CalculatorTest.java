@@ -82,4 +82,17 @@ public class CalculatorTest {
         // when
         calculator.executeCalculation(operation);
     }
+
+    @Test(expected = ArithmeticException.class)
+    public void shouldThrowExceptionOnDividingByZero() {
+        // given
+        Calculator calculator = new Calculator();
+
+        // when
+        String operation = "4/0";
+
+        // then
+        calculator.executeCalculation(operation);
+    }
+
 }
