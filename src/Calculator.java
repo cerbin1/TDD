@@ -1,10 +1,6 @@
 public class Calculator {
     public double executeCalculation(String string) {
-        if (string == null) {
-            throw new IllegalArgumentException();
-        }
-
-        if (string.equals("")) {
+        if (string == null || string.equals("")) {
             throw new IllegalArgumentException();
         }
 
@@ -27,6 +23,6 @@ public class Calculator {
         throw new InvalidOperatorException();
     }
 
-    class InvalidOperatorException extends RuntimeException {
+    private class InvalidOperatorException extends RuntimeException {
     }
 }
